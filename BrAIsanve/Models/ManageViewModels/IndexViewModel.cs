@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BrainsaveDev.Models.ManageViewModels
+namespace BrAInsave.Models.ManageViewModels
 {
     public class IndexViewModel
     {

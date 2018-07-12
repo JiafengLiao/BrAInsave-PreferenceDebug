@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using BrainsaveDev.Models;
+using BrAInsave.Models;
 
-namespace BrainsaveDev.Data
+namespace BrAInsave.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

@@ -6,7 +6,7 @@ using MvcControlsToolkit.Core.DataAnnotations;
 using Newtonsoft.Json;
 using BrAInsave.Models.CosmosDB;
 
-namespace BrainsaveDev.Models.CosmosDB
+namespace BrAInsave.Models.CosmosDB
 {
     public class Patient
     {

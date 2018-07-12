@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using BrainsaveDev.Models;
-using BrainsaveDev.Models.ManageViewModels;
-using BrainsaveDev.Services;
+using BrAInsave.Models;
+using BrAInsave.Models.ManageViewModels;
+using BrAInsave.Services;
 
-namespace BrainsaveDev.Controllers
+namespace BrAInsave.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
@@ -495,7 +495,7 @@ namespace BrainsaveDev.Controllers
         {
             return string.Format(
                 AuthenicatorUriFormat,
-                _urlEncoder.Encode("BrainsaveDev"),
+                _urlEncoder.Encode("BrAInsave"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

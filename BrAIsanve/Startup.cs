@@ -8,14 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using BrainsaveDev.Data;
-using BrainsaveDev.Models;
-using BrainsaveDev.Services;
+using BrAInsave.Data;
+using BrAInsave.Models;
+using BrAInsave.Services;
 using MvcControlsToolkit.Business.DocumentDB;
-using BrainsaveDev.Repository;
+using BrAInsave.Repository;
 using Microsoft.AspNetCore.Http;
 
-namespace BrainsaveDev
+namespace BrAInsave
 {
     public class Startup
     {

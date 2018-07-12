@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BrainsaveDev.Services
+namespace BrAInsave.Services
 {
     public interface IEmailSender
     {

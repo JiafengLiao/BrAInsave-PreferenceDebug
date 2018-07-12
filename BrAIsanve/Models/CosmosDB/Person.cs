@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace BrainsaveDev.Models.CosmosDB
+namespace BrAInsave.Models.CosmosDB
 {
     public class Person
     {

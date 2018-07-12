@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using BrainsaveDev.Data;
-using BrainsaveDev.DTOs;
-using BrainsaveDev.Models.CosmosDB;
+using BrAInsave.Data;
+using BrAInsave.DTOs;
+using BrAInsave.Models.CosmosDB;
 using MvcControlsToolkit.Business.DocumentDB;
 using MvcControlsToolkit.Core.Business.Utilities;
 
-namespace BrainsaveDev.Repository
+namespace BrAInsave.Repository
 {
     public class ToDoItemsRepository: DocumentDBCRUDRepository<Patient>
     {
@@ -88,17 +88,18 @@ namespace BrainsaveDev.Repository
         //    return await ToList<SubItemDTO>(query);
         //}
 
-        public async Task<IList<PersonListDTO>> AllFoodPref()
+        public async Task<IList<FoodPrefList>> AllFoodPref()
         {
-            var query =
-           Table(100)
-           .Where(SelectFilter)
-           .SelectMany(m => m.Team);
-            return await ToList<PersonListDTO, Person>(query);
-            //var query = Table(100)
-            //    .Where(SelectFilter)
-            //    .SelectMany(m => m.FoodPreferences);
-            //return await ToList<FoodPrefDTO>(query);
+           // var query =
+           //Table(100)
+           //.Where(SelectFilter)
+           //.SelectMany(m => m.Team);
+           // return await ToList<PersonListDTO, Person>(query);
+
+            var query = Table(100)
+                .Where(SelectFilter)
+                .SelectMany(m => m.FoodPreferences);
+            return await ToList<FoodPrefList,FoodPreference>(query);
         }
 
         public async Task<IList<PersonListDTO>> AllMembers()

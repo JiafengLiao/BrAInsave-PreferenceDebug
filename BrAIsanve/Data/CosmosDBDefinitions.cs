@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BrAInsave.Models.CosmosDB;
-using BrainsaveDev.Models.CosmosDB;
+using BrAInsave.Models.CosmosDB;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using MvcControlsToolkit.Business.DocumentDB;
 
-namespace BrainsaveDev.Data
+namespace BrAInsave.Data
 {
     public static class CosmosDBDefinitions
     {

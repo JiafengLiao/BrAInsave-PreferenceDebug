@@ -1,6 +1,6 @@
 using System;
 
-namespace BrainsaveDev.Models
+namespace BrAInsave.Models
 {
     public class ErrorViewModel
     {

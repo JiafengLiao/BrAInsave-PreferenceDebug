@@ -1,4 +1,4 @@
-﻿@using BrainsaveDev.Views.Manage
+﻿@using BrAInsave.Views.Manage
 @inject SignInManager<ApplicationUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();

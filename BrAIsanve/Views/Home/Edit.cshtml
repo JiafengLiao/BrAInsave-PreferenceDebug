@@ -1,12 +1,12 @@
-﻿@using BrainsaveDev.DTOs
-@model DetailItemDTO
+﻿@using BrAInsave.DTOs
+@model PatientDTO
 @{
     ViewData["Title"] = "Preference";
     string error = ViewData["error"] as string;
-    List<SubItemDTO> SubItems = null;
-    if(Model != null && Model.SubItems != null)
+    List<FoodPrefDTO> foodPrefs = null;
+    if(Model != null && Model.FoodPreferences != null)
     {
-        SubItems = Model.SubItems.ToList();
+        foodPrefs = Model.FoodPreferences.ToList();
     }
 }
 
@@ -84,7 +84,7 @@
                 <th>
                     <button type="button" class="add-button
                             btn btn-xs btn-primary"
-                            title="new sub-item">
+                            title="new food preferences">
                         <span class="glyphicon
                                 glyphicon-plus">
                         </span>
@@ -104,8 +104,8 @@
                                 glyphicon-minus">
                         </span>
                     </button>
-                    <input class="binding-index" 
-                           type="hidden" name="SubItems.Index" />
+                    <input class="binding-index"
+                           type="hidden" name="FoodPreference.Index" /> @*name="SubItems.Index*@
                 </td>
                 <td>
                     <input type="text" name="Name"
@@ -118,30 +118,29 @@
                            class="form-control" />
                 </td>
             </tr>
-        @if (Model != null && Model.SubItems != null)
+        @if (Model != null && Model.FoodPreferences != null)
         {
-            for (int i=0;i< Model.SubItems.Count(); i++)
+            for (int i=0;i< Model.FoodPreferences.Count(); i++)
             {
             <tr>
                 <td>
-                    <button 
-                        class="delete-button 
-                            btn btn-xs btn-primary" 
-                        title="delete">
-                        <span class="glyphicon 
+                    <button class="delete-button
+                            btn btn-xs btn-primary"
+                            title="delete">
+                        <span class="glyphicon
                                 glyphicon-minus">
                         </span>
                     </button>
-                    <input type="hidden" name="SubItems.Index" value="@i" />
+                    <input type="hidden" name="FoodPreference.Index" value="@i" />@*name="SubItems.Index*@
                 </td>
                 <td>
-                    <input asp-for="@SubItems[i].Name"
+                    <input asp-for="@foodPrefs[i].Name"
                         class="form-control" />
-                    <input type="hidden" asp-for="@SubItems[i].Id"
+                    <input type="hidden" asp-for="@foodPrefs[i].Id"
                            class="form-control" />
                 </td>
                 <td>
-                <input asp-for="@SubItems[i].Description"
+                <input asp-for="@foodPrefs[i].Description"
                     class="form-control" />
                 </td>
             </tr>

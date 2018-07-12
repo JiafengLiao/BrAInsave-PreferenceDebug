@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using BrainsaveDev.Models;
-using BrainsaveDev.Repository;
-using BrainsaveDev.DTOs;
+using BrAInsave.Models;
+using BrAInsave.Repository;
+using BrAInsave.DTOs;
 
-namespace BrainsaveDev.Controllers
+namespace BrAInsave.Controllers
 {
     public class HomeController : Controller
     {
@@ -120,6 +120,7 @@ namespace BrainsaveDev.Controllers
             var vm=await repo.AllFoodPref();
             return View(vm);
         }
+
         public async Task<IActionResult> AllTeamMembers()
         {
             var vm = await repo.AllMembers();
@@ -139,11 +140,12 @@ namespace BrainsaveDev.Controllers
             return View();
         }
 
-        public IActionResult Preference()
+        public async Task<IActionResult> Preference()
         {
             ViewData["Message"] = "Your Preference page.";
-
-            return View();
+            var vm = await repo.GetAllItems();
+            return View(vm);
+            //return View();
         }
 
         public IActionResult Error()
