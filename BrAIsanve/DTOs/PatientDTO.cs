@@ -18,7 +18,7 @@ namespace BrAInsave.DTOs
 
         public IEnumerable<MusicPrefDTO> MusicPreferences { get; set; }
 
-        public string AssignedToSurname { get; set; }
+        public string AssignedToEmail { get; set; }
 
         public string AssignedToId { get; set; }
     }
@@ -26,8 +26,8 @@ namespace BrAInsave.DTOs
     public class FoodPrefDTO
     {
         public string Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string FoodType { get; set; }
+        public string FoodPreferenceDetail { get; set; }
     }
 
     public class MusicPrefDTO

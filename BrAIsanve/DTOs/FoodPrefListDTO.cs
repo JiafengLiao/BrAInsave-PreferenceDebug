@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace BrAInsave.DTOs
 {
-    public class FoodPrefList
+    public class FoodPrefListDTO
     {
+        public string Id { get; set; }
+
         public string FoodType { get; set; }
 
         public string FoodPreferenceDetail { get; set; }

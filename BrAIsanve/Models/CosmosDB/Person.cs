@@ -10,8 +10,8 @@ namespace BrAInsave.Models.CosmosDB
     {
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
-        [JsonProperty(PropertyName = "surname")]
-        public string Surname { get; set; }
+        [JsonProperty(PropertyName = "Email")]
+        public string Email { get; set; }
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
     }

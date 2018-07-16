@@ -3,10 +3,10 @@
 @{
     ViewData["Title"] = "Preference";
     string error = ViewData["error"] as string;
-    List<FoodPrefDTO> foodPrefs = null;
+    List<FoodPrefDTO> FoodPrefs = null;
     if(Model != null && Model.FoodPreferences != null)
     {
-        foodPrefs = Model.FoodPreferences.ToList();
+        FoodPrefs = Model.FoodPreferences.ToList();
     }
 }
 
@@ -36,12 +36,12 @@
         </div>
         <div class="col-xs-4">
             <div class="form-group">
-                <label asp-for="AssignedToSurname" 
+                <label asp-for="AssignedToEmail" 
                        class="col-xs-12 control-label"></label>
                 <div class="col-xs-12">
-                    <input asp-for="AssignedToSurname"
+                    <input asp-for="AssignedToEmail"
                            class="form-control" />
-                    <span asp-validation-for="AssignedToSurname"
+                    <span asp-validation-for="AssignedToEmail"
                           class="text-danger"></span>
                 </div>
             </div>
@@ -84,14 +84,14 @@
                 <th>
                     <button type="button" class="add-button
                             btn btn-xs btn-primary"
-                            title="new food preferences">
+                            title="newPreferences">
                         <span class="glyphicon
                                 glyphicon-plus">
                         </span>
                     </button>
                 </th>
-                <th>Name</th>
-                <th>Description</th>
+                <th>Food Type</th>
+                <th>Detail</th>
             </tr>
         </thead>
         <tbody class="items-container">
@@ -105,16 +105,16 @@
                         </span>
                     </button>
                     <input class="binding-index"
-                           type="hidden" name="FoodPreference.Index" /> @*name="SubItems.Index*@
+                           type="hidden" name="FoodPrefs.Index" /> @*name="SubItems.Index*@
                 </td>
                 <td>
-                    <input type="text" name="Name"
+                    <input type="text" name="FoodType"
                            class="form-control" />
                     <input  type="hidden" name="Id"
                            class="form-control" />
                 </td>
                 <td>
-                    <input type="text" name="Description"
+                    <input type="text" name="FoodPreferneceDetail"
                            class="form-control" />
                 </td>
             </tr>
@@ -131,16 +131,16 @@
                                 glyphicon-minus">
                         </span>
                     </button>
-                    <input type="hidden" name="FoodPreference.Index" value="@i" />@*name="SubItems.Index*@
+                    <input type="hidden" name="FoodPrefs.Index" value="@i" />@*name="SubItems.Index*@
                 </td>
                 <td>
-                    <input asp-for="@foodPrefs[i].Name"
+                    <input asp-for="@FoodPrefs[i].FoodType"
                         class="form-control" />
-                    <input type="hidden" asp-for="@foodPrefs[i].Id"
+                    <input type="hidden" asp-for="@FoodPrefs[i].Id"
                            class="form-control" />
                 </td>
                 <td>
-                <input asp-for="@foodPrefs[i].Description"
+                <input asp-for="@FoodPrefs[i].FoodPreferenceDetail"
                     class="form-control" />
                 </td>
             </tr>
@@ -173,7 +173,7 @@
         $(document).on("click", ".add-button", function (evt) {
             addCount++;
             var index = "_" + addCount;
-            var prefix = "SubItems[" + index + "].";
+            var prefix = "FoodPrefs[" + index + "].";
             var item = template.clone();
             item.find(".binding-index").val(index);
             $(".items-container").append(item);

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BrAInsave.Models.CosmosDB;
-using BrAInsave.Models.CosmosDB;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using MvcControlsToolkit.Business.DocumentDB;
@@ -15,7 +14,7 @@ namespace BrAInsave.Data
         private static string accountURI = "https://localhost:8081";
         private static string accountKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
         public static string DatabaseId { get; private set; } = "PreferenceList";
-        public static string ToDoItemsId { get; private set; } = "Preference";
+        public static string PreferenceID { get; private set; } = "Preference";
 
         public static IDocumentDBConnection GetConnection()
         {
@@ -31,7 +30,7 @@ namespace BrAInsave.Data
                     new Database { Id = DatabaseId });
 
             DocumentCollection myCollection = new DocumentCollection();
-            myCollection.Id = ToDoItemsId;
+            myCollection.Id = PreferenceID;
             myCollection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
             myCollection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
             var res=await connection.Client.CreateDocumentCollectionIfNotExistsAsync(
@@ -56,7 +55,7 @@ namespace BrAInsave.Data
                     curr.AssignedTo = new Person
                     {
                         Name = "Francesco",
-                        Surname = "frank@fake.com",
+                        Email = "frank@fake.com",
                         Id = Guid.NewGuid().ToString()
                     };
 
@@ -67,7 +66,7 @@ namespace BrAInsave.Data
                     {
                         FoodType = "Meal" + i + "_" + j,
                         FoodPreferencesDetail = "Food" + i + "_" + j,
-                        id = Guid.NewGuid().ToString()
+                        Id = Guid.NewGuid().ToString()
                     });
                 }
                 curr.FoodPreferences = foodPrefList;
@@ -79,7 +78,7 @@ namespace BrAInsave.Data
                     {
                         MusicType = "Rock",
                         Songs = "It is my life",
-                        id = Guid.NewGuid().ToString()
+                        Id = Guid.NewGuid().ToString()
                     });
                 }
                 curr.MusicPreferences = musicPrefList;
@@ -90,7 +89,7 @@ namespace BrAInsave.Data
                     .CreateDocumentAsync(
                     UriFactory
                         .CreateDocumentCollectionUri(
-                            DatabaseId, ToDoItemsId), 
+                            DatabaseId, PreferenceID), 
                     patient);
                 
             }

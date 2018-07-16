@@ -18,7 +18,7 @@ namespace BrAInsave.Repository
             IDocumentDBConnection connection,
             string userName
             ): base(connection, 
-                CosmosDBDefinitions.ToDoItemsId,
+                CosmosDBDefinitions.PreferenceID,
                 m => m.Owner == userName,
                 m => m.Owner == userName
                 )
@@ -49,7 +49,7 @@ namespace BrAInsave.Repository
                    new Patient
                    {
                        FoodPreferences = m.FoodPreferences
-                        .Select(l => new BrAInsave.Models.CosmosDB.FoodPreference { }),
+                        .Select(l => new FoodPreference { }),
                        AssignedTo = m.AssignedToId == null ?
                         null : new Person { }
                    }
@@ -62,6 +62,14 @@ namespace BrAInsave.Repository
 
                 }, m => m.Id
             );
+            DeclareProjection
+                (m =>
+                new FoodPrefListDTO
+                {
+
+
+                }, m => m.Id
+            );
             DocumentDBCRUDRepository<Person>
                  .DeclareProjection
                 (m =>
@@ -69,8 +77,17 @@ namespace BrAInsave.Repository
                  {
 
 
-                 }, m => m.Surname
+                 }, m => m.Email
              );
+            DocumentDBCRUDRepository<FoodPreference>
+                .DeclareProjection
+               (m =>
+                new FoodPrefListDTO
+                {
+
+
+                }, m => m.FoodType
+            );
         }
         public async Task<DataPage<ListItemDTO>> GetAllItems()
         {
@@ -88,7 +105,7 @@ namespace BrAInsave.Repository
         //    return await ToList<SubItemDTO>(query);
         //}
 
-        public async Task<IList<FoodPrefList>> AllFoodPref()
+        public async Task<IList<FoodPrefListDTO>> AllFoodPref()
         {
            // var query =
            //Table(100)
@@ -99,7 +116,7 @@ namespace BrAInsave.Repository
             var query = Table(100)
                 .Where(SelectFilter)
                 .SelectMany(m => m.FoodPreferences);
-            return await ToList<FoodPrefList,FoodPreference>(query);
+            return await ToList<FoodPrefListDTO,FoodPreference>(query);
         }
 
         public async Task<IList<PersonListDTO>> AllMembers()

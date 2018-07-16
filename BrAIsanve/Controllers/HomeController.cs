@@ -116,7 +116,6 @@ namespace BrAInsave.Controllers
     }
         public async Task<IActionResult> AllFoodPref ()
         {
-            var members = await repo.AllMembers();
             var vm=await repo.AllFoodPref();
             return View(vm);
         }

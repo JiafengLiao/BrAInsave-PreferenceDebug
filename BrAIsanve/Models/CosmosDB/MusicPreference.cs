@@ -15,6 +15,6 @@ namespace BrAInsave.Models.CosmosDB
         public string Songs { get; set; }
 
         [JsonProperty(PropertyName = "ID")]
-        public string id { get; set; }
+        public string Id { get; set; }
     }
 }

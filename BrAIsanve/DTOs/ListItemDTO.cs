@@ -11,6 +11,6 @@ namespace BrAInsave.DTOs
 
         public string Name { get; set; }
 
-        public string AssignedToSurname { get; set; }
+        public string AssignedToEmail { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿@using BrAInsave.DTOs
-@model IList<FoodPrefDTO>
+@model IList<FoodPrefListDTO>
 @{
     ViewData["Title"] = "Food preference";
 }
@@ -8,17 +8,17 @@
     table-hover table-condensed">
     <thead>
         <tr class="info">
-            <th>Name</th>
-            <th>Description</th>
+            <th>Food Type</th>
+            <th>Detail</th>
         </tr>
     </thead>
     <tbody class="items-container">
-    @foreach (var item in Model)
-    {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Description</td>
-            </tr>
-    }
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>@item.FoodType</td>
+                    <td>@item.FoodPreferenceDetail</td>
+                </tr>
+        }
     </tbody>
 </table>
